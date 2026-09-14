@@ -15,30 +15,31 @@
         body { min-height: 100vh; background: #0b0f19; color: #fff; position: relative; overflow-x: hidden; }
 
         /* AUTHENTIFICATION */
-        .auth-container { min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 15px; }
-        .auth-card { background: #ffffff; padding: 25px 20px; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); width: 100%; max-width: 420px; color: #333; }
+        .auth-container { min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .auth-card { background: #ffffff; padding: 35px 30px; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); width: 100%; max-width: 420px; color: #333; }
         .form-box { display: none; }
         .form-box.active { display: block; animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
         
         .auth-header { text-align: center; margin-bottom: 20px; }
-        .auth-header h2 { color: #2c3e50; font-size: 22px; font-weight: 700; margin-bottom: 5px; }
+        .auth-header h2 { color: #2c3e50; font-size: 24px; font-weight: 700; margin-bottom: 5px; }
         .auth-header p { color: #7f8c8d; font-size: 13px; }
         
         .input-group { margin-bottom: 15px; display: flex; flex-direction: column; }
         .input-group label { font-size: 13px; color: #34495e; margin-bottom: 5px; font-weight: 600; }
-        .input-group input { padding: 12px 14px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; outline: none; transition: all 0.2s ease; width: 100%; }
+        .input-group input { padding: 11px 14px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 14px; outline: none; transition: all 0.2s ease; }
         .input-group input:focus { border-color: #00d2ff; box-shadow: 0 0 8px rgba(0, 210, 255, 0.4); }
         
-        .login-options { display: flex; justify-content: space-between; align-items: center; font-size: 12px; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .login-options { display: flex; justify-content: space-between; align-items: center; font-size: 12px; margin-bottom: 20px; }
         .remember-me { display: flex; align-items: center; gap: 6px; color: #555; cursor: pointer; }
         .forgot-password { color: #00d2ff; text-decoration: none; font-weight: 600; cursor: pointer; }
         
-        .btn-submit { width: 100%; padding: 14px; background: linear-gradient(135deg, #00c6ff, #0072ff); color: #ffffff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 198, 255, 0.3); transition: all 0.2s ease; }
-        .btn-secondary { width: 100%; padding: 12px; background: #ffffff; color: #0072ff; border: 2px solid #0072ff; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 10px; }
+        .btn-submit { width: 100%; padding: 12px; background: linear-gradient(135deg, #00c6ff, #0072ff); color: #ffffff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 198, 255, 0.3); transition: all 0.2s ease; }
+        .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 15px rgba(0, 198, 255, 0.5); }
+        .btn-secondary { width: 100%; padding: 10px; background: #ffffff; color: #0072ff; border: 2px solid #0072ff; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 10px; }
 
         /* TOAST & LOADING RAPIDE */
-        #toast { position: fixed; top: 20px; right: 20px; left: 20px; max-width: 400px; margin: 0 auto; background: #2c3e50; color: #fff; padding: 12px 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: none; z-index: 2000; font-size: 14px; text-align: center; }
+        #toast { position: fixed; top: 20px; right: 20px; background: #2c3e50; color: #fff; padding: 12px 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: none; z-index: 2000; font-size: 14px; }
         #toast.error { background: #e74c3c; }
         #toast.success { background: #27ae60; }
 
@@ -47,89 +48,139 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .loading-text { color: #80e5ff; margin-top: 15px; font-size: 15px; letter-spacing: 1px; font-weight: 600; }
 
-        /* DASHBOARD RESPONSIVE MOBILE */
+        /* DASHBOARD */
         #dashboardLayout { display: none; min-height: 100vh; flex-direction: column; background: #0b0f19; }
-        .dash-nav { min-height: 65px; background: #121829; border-bottom: 1px solid rgba(0, 210, 255, 0.2); display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; flex-wrap: wrap; gap: 10px; }
-        .dash-logo { font-size: 16px; font-weight: 800; color: #00d2ff; }
-        .user-nav-profile { display: flex; align-items: center; gap: 10px; }
-        .user-avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #00c6ff, #0072ff); display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 14px; }
-        .btn-logout-nav { background: #e74c3c; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; }
+        .dash-nav { height: 65px; background: #121829; border-bottom: 1px solid rgba(0, 210, 255, 0.2); display: flex; justify-content: space-between; align-items: center; padding: 0 25px; }
+        .dash-logo { font-size: 18px; font-weight: 800; color: #00d2ff; }
+        .user-nav-profile { display: flex; align-items: center; gap: 12px; }
+        .user-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #00c6ff, #0072ff); display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 16px; }
+        .btn-logout-nav { background: #e74c3c; color: white; border: none; padding: 7px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; }
 
-        .dash-body { display: flex; flex-direction: column; flex: 1; }
-        
-        /* Sidebar transformée en Menu Horizontal Défilant sur mobile */
-        .sidebar { width: 100%; background: #121829; border-bottom: 1px solid rgba(0, 210, 255, 0.1); padding: 10px 15px; display: flex; overflow-x: auto; gap: 8px; white-space: nowrap; -webkit-overflow-scrolling: touch; }
-        .sidebar::-webkit-scrollbar { display: none; }
-        .sidebar-btn { background: rgba(255, 255, 255, 0.03); color: #a0aec0; border: none; padding: 8px 14px; text-align: center; font-size: 13px; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-weight: 600; flex-shrink: 0; }
-        .sidebar-btn:hover, .sidebar-btn.active { background: rgba(0, 210, 255, 0.15); color: #00d2ff; border-left: none; border-bottom: 3px solid #00d2ff; }
+        .dash-body { display: flex; flex: 1; }
+        .sidebar { width: 240px; background: #121829; border-right: 1px solid rgba(0, 210, 255, 0.1); padding: 15px; display: flex; flex-direction: column; gap: 8px; }
+        .sidebar-btn { background: transparent; color: #a0aec0; border: none; padding: 11px 14px; text-align: left; font-size: 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-weight: 600; }
+        .sidebar-btn:hover, .sidebar-btn.active { background: rgba(0, 210, 255, 0.1); color: #00d2ff; border-left: 4px solid #00d2ff; }
         .sidebar-btn.admin-btn { border: 1px solid #f39c12; color: #f39c12; }
-        .sidebar-btn.admin-btn:hover, .sidebar-btn.admin-btn.active { background: rgba(243, 156, 18, 0.2); color: #f1c40f; border-bottom: 3px solid #f1c40f; }
+        .sidebar-btn.admin-btn:hover, .sidebar-btn.admin-btn.active { background: rgba(243, 156, 18, 0.2); color: #f1c40f; border-left: 4px solid #f1c40f; }
 
-        .main-content { flex: 1; padding: 15px; overflow-y: auto; }
-        .neon-title-banner { color: #e0f7fc; text-shadow: 0 0 8px #00d2ff; font-size: 16px; font-weight: 800; margin-bottom: 15px; }
+        .main-content { flex: 1; padding: 25px; overflow-y: auto; }
+        .neon-title-banner { color: #e0f7fc; text-shadow: 0 0 10px #00d2ff; font-size: 18px; font-weight: 800; margin-bottom: 20px; }
 
-        .stats-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px; }
-        .stat-card { background: #121829; border: 1px solid rgba(0, 210, 255, 0.2); padding: 15px; border-radius: 10px; }
-        .stat-card h4 { color: #a0aec0; font-size: 12px; margin-bottom: 6px; }
-        .stat-card .value { font-size: 20px; font-weight: bold; color: #00d2ff; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px; }
+        .stat-card { background: #121829; border: 1px solid rgba(0, 210, 255, 0.2); padding: 18px; border-radius: 10px; }
+        .stat-card h4 { color: #a0aec0; font-size: 13px; margin-bottom: 8px; }
+        .stat-card .value { font-size: 22px; font-weight: bold; color: #00d2ff; }
 
-        .dash-section { display: none; background: #121829; border: 1px solid rgba(0, 210, 255, 0.15); padding: 15px; border-radius: 10px; }
+        .dash-section { display: none; background: #121829; border: 1px solid rgba(0, 210, 255, 0.15); padding: 20px; border-radius: 10px; }
         .dash-section.active { display: block; }
-        .dash-section h3 { color: #00d2ff; margin-bottom: 12px; font-size: 18px; }
+        .dash-section h3 { color: #00d2ff; margin-bottom: 12px; }
 
-        .payment-period-box { background: rgba(0, 210, 255, 0.08); border: 1px solid #00d2ff; border-radius: 8px; padding: 12px; margin-bottom: 15px; color: #e0f7fc; font-size: 12px; line-height: 1.4; }
+        .payment-period-box { background: rgba(0, 210, 255, 0.08); border: 1px solid #00d2ff; border-radius: 8px; padding: 12px; margin-bottom: 20px; color: #e0f7fc; font-size: 13px; }
 
         /* COMPOSANTS WAVE PAYMENT */
-        .wave-payment-card { background: #0e1626; border: 1px solid #1dc4ec; border-radius: 12px; padding: 15px; margin-top: 15px; }
-        .wave-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-        .wave-logo-img { width: 36px; height: 36px; border-radius: 50%; background: #1dc4ec; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; font-size: 18px; box-shadow: 0 0 10px rgba(29, 196, 236, 0.5); flex-shrink: 0; }
-        .btn-wave { display: flex; width: 100%; align-items: center; justify-content: center; gap: 10px; padding: 12px; background: #1dc4ec; color: #000; font-weight: 700; border-radius: 8px; text-decoration: none; transition: 0.2s; border: none; cursor: pointer; margin-bottom: 10px; font-size: 14px; }
-        .btn-wave:hover { background: #17b3d8; }
+        .wave-payment-card { background: #0e1626; border: 1px solid #1dc4ec; border-radius: 12px; padding: 20px; margin-top: 15px; }
+        .wave-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .wave-logo-img { width: 40px; height: 40px; border-radius: 50%; background: #1dc4ec; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; font-size: 20px; box-shadow: 0 0 10px rgba(29, 196, 236, 0.5); }
+        .btn-wave { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; background: #1dc4ec; color: #000; font-weight: 700; border-radius: 8px; text-decoration: none; transition: 0.2s; border: none; cursor: pointer; margin-right: 10px; margin-bottom: 10px; }
+        .btn-wave:hover { background: #17b3d8; transform: translateY(-1px); }
 
-        .progress-bar-container { background: #0b0f19; border-radius: 8px; height: 16px; width: 100%; overflow: hidden; margin: 10px 0; border: 1px solid rgba(0,210,255,0.3); }
+        .progress-bar-container { background: #0b0f19; border-radius: 8px; height: 18px; width: 100%; overflow: hidden; margin: 12px 0; border: 1px solid rgba(0,210,255,0.3); }
         .progress-bar-fill { background: linear-gradient(90deg, #00c6ff, #0072ff); height: 100%; width: 0%; transition: width 0.4s ease; }
 
-        .verify-box { margin-top: 15px; background: #0b0f19; padding: 12px; border-radius: 8px; border: 1px dashed rgba(0,210,255,0.4); }
-        .verify-box input { padding: 10px; border-radius: 6px; border: 1px solid #00d2ff; background: #121829; color: #fff; outline: none; font-size: 14px; width: 100%; margin-bottom: 8px; }
+        .verify-box { margin-top: 15px; background: #0b0f19; padding: 15px; border-radius: 8px; border: 1px dashed rgba(0,210,255,0.4); }
+        .verify-box input { padding: 9px 12px; border-radius: 6px; border: 1px solid #00d2ff; background: #121829; color: #fff; outline: none; margin-right: 8px; font-size: 14px; }
 
-        /* Conteneur pour rendre les tableaux scrollables horizontalement sur mobile */
-        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 15px; }
-        .history-table { width: 100%; border-collapse: collapse; min-width: 450px; }
-        .history-table th, .history-table td { padding: 10px 8px; border-bottom: 1px solid rgba(0,210,255,0.1); text-align: left; font-size: 12px; }
+        .history-table { width: 100%; margin-top: 15px; border-collapse: collapse; }
+        .history-table th, .history-table td { padding: 10px; border-bottom: 1px solid rgba(0,210,255,0.1); text-align: left; font-size: 13px; }
         .history-table th { color: #00d2ff; }
 
-        .participants-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 15px; }
-        .participant-card { background: #0b0f19; border: 1px solid rgba(0, 210, 255, 0.3); border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
-        .participant-header { display: flex; align-items: center; gap: 10px; }
-        .participant-avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #00c6ff, #0072ff); display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
+        .participants-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
+        .participant-card { background: #0b0f19; border: 1px solid rgba(0, 210, 255, 0.3); border-radius: 10px; padding: 15px; display: flex; flex-direction: column; gap: 10px; }
+        .participant-header { display: flex; align-items: center; gap: 12px; }
+        .participant-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, #00c6ff, #0072ff); display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 15px; }
         
         .status-badge { display: inline-block; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: bold; width: fit-content; }
         .status-paid { background: rgba(39, 174, 96, 0.15); color: #27ae60; border: 1px solid #27ae60; }
         .status-pending { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid #f1c40f; }
         .status-late { background: rgba(231, 76, 60, 0.15); color: #e74c3c; border: 1px solid #e74c3c; }
 
-        /* FACTURE IMPRIMABLE & SHINY STAMP */
-        #pdfReceiptTemplate { display: none; background: #ffffff; color: #1a202c; padding: 20px; border-radius: 12px; font-family: 'Segoe UI', Arial, sans-serif; position: relative; border: 2px solid #e2e8f0; width: 100%; max-width: 600px; margin: auto; }
-        .receipt-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #0072ff; padding-bottom: 12px; margin-bottom: 15px; gap: 10px; }
-        .receipt-title { font-size: 15px; font-weight: 800; color: #0072ff; text-transform: uppercase; }
-        .receipt-subtitle { font-size: 10px; color: #718096; }
+        /* FACTION / FACTURE IMPRIMABLE & SHINY STAMP */
+        #pdfReceiptTemplate { display: none; background: #ffffff; color: #1a202c; padding: 35px; border-radius: 12px; font-family: 'Segoe UI', Arial, sans-serif; position: relative; border: 2px solid #e2e8f0; width: 680px; margin: auto; }
+        .receipt-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #0072ff; padding-bottom: 15px; margin-bottom: 20px; }
+        .receipt-title { font-size: 18px; font-weight: 800; color: #0072ff; text-transform: uppercase; }
+        .receipt-subtitle { font-size: 11px; color: #718096; }
 
-        .receipt-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 15px; font-size: 12px; }
-        .receipt-box-info { background: #f8fafc; border: 1px solid #e2e8f0; padding: 10px; border-radius: 8px; }
-        .receipt-box-info h5 { color: #2d3748; margin-bottom: 6px; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #cbd5e0; padding-bottom: 3px; }
+        .receipt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; font-size: 13px; }
+        .receipt-box-info { background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; }
+        .receipt-box-info h5 { color: #2d3748; margin-bottom: 6px; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid #cbd5e0; padding-bottom: 3px; }
         
-        .receipt-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 12px; }
-        .receipt-table th { background: #ebf8ff; color: #2b6cb0; text-align: left; padding: 6px; border: 1px solid #bee3f8; }
-        .receipt-table td { padding: 6px; border: 1px solid #e2e8f0; }
+        .receipt-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 13px; }
+        .receipt-table th { background: #ebf8ff; color: #2b6cb0; text-align: left; padding: 8px; border: 1px solid #bee3f8; }
+        .receipt-table td { padding: 8px; border: 1px solid #e2e8f0; }
 
         /* BADGE BRILLANT / Hologramme */
-        .shiny-seal { width: 95px; height: 95px; border-radius: 50%; background: linear-gradient(135deg, #ffd700 0%, #ffae00 50%, #fff8dc 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #5b4000; font-weight: 800; text-align: center; border: 4px double #b8860b; box-shadow: 0 0 12px rgba(255, 215, 0, 0.6); position: relative; overflow: hidden; flex-shrink: 0; }
+        .shiny-seal { width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, #ffd700 0%, #ffae00 50%, #fff8dc 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #5b4000; font-weight: 800; text-align: center; border: 4px double #b8860b; box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); position: relative; overflow: hidden; }
         .shiny-seal::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.8) 50%, transparent 55%); transform: rotate(30deg); animation: shine 3s infinite; }
         @keyframes shine { 0% { transform: translateX(-100%) rotate(30deg); } 100% { transform: translateX(100%) rotate(30deg); } }
-        .shiny-seal span { font-size: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .shiny-seal span { font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        .receipt-footer-section { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; border-top: 1px dashed #cbd5e0; padding-top: 12px; gap: 10px; }
-        #qrcodeCanvas canvas { width: 75px !important; height: 75px !important; }
+        .receipt-footer-section { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; border-top: 1px dashed #cbd5e0; padding-top: 15px; }
+        #qrcodeCanvas { width: 90px; height: 90px; }
+
+        @media (max-width: 768px) {
+            .auth-container { padding: 12px; align-items: flex-start; padding-top: 24px; }
+            .auth-card { padding: 26px 18px; }
+            .login-options { align-items: flex-start; gap: 10px; }
+            .login-options .forgot-password { text-align: right; }
+
+            .dash-nav { height: auto; min-height: 65px; padding: 12px 15px; gap: 12px; flex-wrap: wrap; }
+            .dash-logo { font-size: 15px; }
+            .user-nav-profile { margin-left: auto; gap: 8px; }
+            .user-nav-profile span { max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+            .btn-logout-nav { padding: 7px 10px; }
+
+            .dash-body { flex-direction: column; }
+            .sidebar { width: 100%; padding: 8px; border-right: none; border-bottom: 1px solid rgba(0, 210, 255, 0.1); flex-direction: row; gap: 6px; overflow-x: auto; }
+            .sidebar-btn { flex: 0 0 auto; padding: 9px 11px; white-space: nowrap; font-size: 12px; }
+            .sidebar-btn:hover, .sidebar-btn.active { border-left: none; border-bottom: 3px solid #00d2ff; }
+            .sidebar-btn.admin-btn:hover, .sidebar-btn.admin-btn.active { border-left: none; border-bottom: 3px solid #f1c40f; }
+
+            .main-content { width: 100%; min-width: 0; padding: 16px 12px 24px; }
+            .neon-title-banner { font-size: 16px; margin-bottom: 14px; }
+            .stats-grid { grid-template-columns: 1fr; gap: 10px; margin-bottom: 16px; }
+            .stat-card { padding: 14px; }
+            .stat-card .value { font-size: 20px; }
+            .dash-section { padding: 15px; border-radius: 8px; }
+            .dash-section h3 { font-size: 17px; line-height: 1.35; }
+
+            .wave-payment-card { padding: 14px; }
+            .wave-header { align-items: flex-start; gap: 9px; }
+            .wave-header > div:last-child { min-width: 0; }
+            .wave-header h4 { line-height: 1.35; }
+            .btn-wave { width: 100%; margin-right: 0; padding: 11px 12px; }
+            .btn-wave span { overflow-wrap: anywhere; }
+            .verify-box input { width: 100% !important; min-width: 0 !important; margin-right: 0; }
+            .verify-box button { width: 100%; }
+
+            .history-table { display: block; overflow-x: auto; white-space: nowrap; }
+            .history-table th, .history-table td { padding: 9px 8px; }
+            #verifyTab > div[style*="max-width"] { max-width: none !important; flex-wrap: wrap; }
+            #verifyTab > div[style*="max-width"] input,
+            #verifyTab > div[style*="max-width"] button { width: 100%; }
+            .participants-grid { grid-template-columns: 1fr; }
+
+            #pdfReceiptTemplate { width: min(680px, calc(100vw - 24px)); padding: 20px; }
+            .receipt-header, .receipt-footer-section { align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+            .receipt-grid { grid-template-columns: 1fr; gap: 10px; }
+            .receipt-table { min-width: 560px; }
+        }
+
+        @media (max-width: 420px) {
+            .user-avatar { display: none; }
+            .user-nav-profile span { max-width: 90px; }
+            .login-options { flex-direction: column; }
+            .login-options .forgot-password { align-self: flex-end; }
+        }
     </style>
 </head>
 <body>
@@ -231,21 +282,21 @@
             <div class="dash-logo">CADRES DE FROTOTOU</div>
             <div class="user-nav-profile">
                 <div class="user-avatar" id="navAvatar">U</div>
-                <span id="navUserName" style="font-size:13px; font-weight:600; max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Utilisateur</span>
+                <span id="navUserName" style="font-size:14px; font-weight:600;">Utilisateur</span>
                 <button id="btnLogout" class="btn-logout-nav">Déconnexion</button>
             </div>
         </nav>
 
         <div class="dash-body">
-            <!-- Menu mobile horizontal scrollable -->
             <aside class="sidebar">
                 <button class="sidebar-btn active" onclick="switchDashTab('homeTab', this)">Vue d'ensemble</button>
                 <button class="sidebar-btn" onclick="switchDashTab('cotisationTab', this)">Paiement Wave CI</button>
-                <button class="sidebar-btn" onclick="switchDashTab('verifyTab', this)">🔍 Vérifier Reçu</button>
-                <button class="sidebar-btn" onclick="switchDashTab('projectsTab', this)">Projets</button>
+                <button class="sidebar-btn" onclick="switchDashTab('verifyTab', this)">🔍 Vérifier un Reçu</button>
+                <button class="sidebar-btn" onclick="switchDashTab('projectsTab', this)">Projets Communautaires</button>
                 <button class="sidebar-btn" onclick="switchDashTab('blogTab', this)">Membres & Blog</button>
                 <button class="sidebar-btn" onclick="switchDashTab('profileTab', this)">Mon Profil</button>
-                <button class="sidebar-btn admin-btn" id="adminSidebarBtn" style="display:none;" onclick="switchDashTab('adminTab', this)">👑 Admin</button>
+                <!-- BOUTON ADMIN RÉSERVÉ -->
+                <button class="sidebar-btn admin-btn" id="adminSidebarBtn" style="display:none;" onclick="switchDashTab('adminTab', this)">👑 Panneau Admin</button>
             </aside>
 
             <main class="main-content">
@@ -269,21 +320,21 @@
                 <!-- VUE D'ENSEMBLE -->
                 <div id="homeTab" class="dash-section active">
                     <h3>Tableau de Bord Officiel</h3>
-                    <p style="color:#a0aec0; font-size:13px; line-height: 1.5;">
+                    <p style="color:#a0aec0; font-size:14px; line-height: 1.6;">
                         Bienvenue sur la plateforme officielle des Cadres pour le Développement de Frototou. Vos cotisations soutiennent les projets communautaires du village.
                     </p>
                 </div>
 
                 <!-- PAIEMENT WAVE -->
                 <div id="cotisationTab" class="dash-section">
-                    <h3>Paiement Sécurisé Wave</h3>
+                    <h3>Paiement Sécurisé via Wave Côte d'Ivoire</h3>
                     
                     <div class="payment-period-box">
-                        📅 <strong>Échéance :</strong> Paiement du <strong>31 au 5 du mois suivant</strong>.
+                        📅 <strong>Échéance :</strong> Paiement exige de la période du <strong>31 du mois en cours au 5 du mois suivant</strong>.
                     </div>
 
                     <div style="margin-top: 15px;">
-                        <p style="font-size:13px;"><strong>Progression :</strong> <span id="percentText">0%</span></p>
+                        <p style="font-size:14px;"><strong>Progression du mois :</strong> <span id="percentText">0%</span></p>
                         <div class="progress-bar-container">
                             <div class="progress-bar-fill" id="progressBar"></div>
                         </div>
@@ -294,12 +345,13 @@
                         <div class="wave-header">
                             <div class="wave-logo-img">w</div>
                             <div>
-                                <h4 style="color:#1dc4ec; font-size:14px;">Application Wave</h4>
-                                <p style="color:#a0aec0; font-size:11px;">Cliquez pour payer directement</p>
+                                <h4 style="color:#1dc4ec; font-size:16px;">Payer avec l'application Wave</h4>
+                                <p style="color:#a0aec0; font-size:12px;">Cliquez sur un montant pour ouvrir directement l'application Wave</p>
                             </div>
                         </div>
 
-                        <div>
+                        <!-- LIENS DE PAIEMENT WAVE MARCHAND OFFICIELS -->
+                        <div style="margin-top:15px;">
                             <a href="https://pay.wave.com/m/M_ci_cipLWOUEEL9u/c/ci/?amount=100" target="_blank" class="btn-wave">
                                 <span>Payer 100 FCFA avec Wave</span>
                             </a>
@@ -310,145 +362,142 @@
 
                         <!-- VÉRIFICATION TRANSACTIONS -->
                         <div class="verify-box">
-                            <h5 style="color:#00d2ff; margin-bottom:6px; font-size:13px;">Validation de votre versement</h5>
-                            <p style="color:#a0aec0; font-size:11px; margin-bottom:8px;">Entrez le montant et la Réf. Wave :</p>
-                            <input type="number" id="waveAmountInput" placeholder="Montant (ex: 1000)">
-                            <input type="text" id="waveRefInput" placeholder="Réf. Transaction Wave">
-                            <button onclick="verifyAndRegisterWavePayment()" style="background:#27ae60; color:#fff; border:none; padding:10px; border-radius:6px; font-weight:bold; cursor:pointer; width:100%; font-size:14px; margin-top:5px;">Valider & Générer Reçu</button>
+                            <h5 style="color:#00d2ff; margin-bottom:8px; font-size:14px;">Étape 2 : Validation de votre versement</h5>
+                            <p style="color:#a0aec0; font-size:12px; margin-bottom:10px;">Après transfert Wave, enregistrez le montant et la Réf. de transaction pour débloquer votre Reçu Certifié :</p>
+                            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                                <input type="number" id="waveAmountInput" placeholder="Montant (ex: 1000)" style="width:140px;">
+                                <input type="text" id="waveRefInput" placeholder="Réf. Transaction Wave" style="flex:1; min-width:180px;">
+                                <button onclick="verifyAndRegisterWavePayment()" style="background:#27ae60; color:#fff; border:none; padding:9px 15px; border-radius:6px; font-weight:bold; cursor:pointer;">Valider & Générer Reçu</button>
+                            </div>
                         </div>
                     </div>
 
-                    <h4 style="margin-top:20px; color:#00d2ff; font-size:14px;">Historique des Versements</h4>
-                    <div class="table-responsive">
-                        <table class="history-table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Réf. Wave</th>
-                                    <th>Montant</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="historyBody">
-                                <tr>
-                                    <td colspan="4" style="color:#a0aec0;">Aucun versement vérifié.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <h4 style="margin-top:25px; color:#00d2ff; font-size:15px;">Historique des Versements Vérifiés</h4>
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Réf. Wave</th>
+                                <th>Montant</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyBody">
+                            <tr>
+                                <td colspan="4" style="color:#a0aec0;">Aucun versement vérifié pour le moment.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- OPTION : VÉRIFIER UN REÇU -->
                 <div id="verifyTab" class="dash-section">
-                    <h3>🔍 Vérificateur de Reçu</h3>
-                    <p style="color:#a0aec0; font-size:12px; margin-bottom:12px;">Entrez le <strong>N° de Reçu</strong> ou la <strong>Réf Wave</strong> :</p>
-                    <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:15px;">
-                        <input type="text" id="searchReceiptInput" placeholder="N° Reçu ou Réf Wave..." style="width:100%; padding:10px; border-radius:6px; border:1px solid #00d2ff; background:#0b0f19; color:#fff; font-size:14px;">
-                        <button onclick="checkReceiptAuthenticity()" style="background:#00d2ff; color:#000; font-weight:bold; border:none; padding:10px; border-radius:6px; cursor:pointer; width:100%; font-size:14px;">Vérifier</button>
+                    <h3>🔍 Vérificateur d'Authenticité de Reçu</h3>
+                    <p style="color:#a0aec0; font-size:13px; margin-bottom:15px;">Entrez le <strong>N° de Reçu (ex: REC-123456)</strong> ou la <strong>Référence Wave</strong> pour authentifier le versement dans la base de données officielle :</p>
+                    <div style="display:flex; gap:10px; max-width:500px; margin-bottom:20px;">
+                        <input type="text" id="searchReceiptInput" placeholder="N° Reçu ou Réf Wave..." style="flex:1; padding:10px; border-radius:6px; border:1px solid #00d2ff; background:#0b0f19; color:#fff;">
+                        <button onclick="checkReceiptAuthenticity()" style="background:#00d2ff; color:#000; font-weight:bold; border:none; padding:10px 18px; border-radius:6px; cursor:pointer;">Vérifier</button>
                     </div>
 
-                    <div id="verifyResultDisplay" style="display:none; background:#0b0f19; padding:15px; border-radius:10px; border:1px solid #27ae60; font-size:13px;"></div>
+                    <div id="verifyResultDisplay" style="display:none; background:#0b0f19; padding:20px; border-radius:10px; border:1px solid #27ae60;"></div>
                 </div>
 
                 <!-- PROJETS -->
                 <div id="projectsTab" class="dash-section">
                     <h3>Projets Communautaires</h3>
-                    <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 10px;">
-                        <div style="background:#0b0f19; padding:10px; border-radius:8px; border-left:4px solid #00d2ff;">
-                            <h4 style="color:#00d2ff; font-size:14px;">1. Fête de vacances à Frototou</h4>
-                            <p style="color:#a0aec0; font-size:12px;">Organisation des festivités estivales et culturelles.</p>
+                    <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 12px;">
+                        <div style="background:#0b0f19; padding:12px; border-radius:8px; border-left:4px solid #00d2ff;">
+                            <h4 style="color:#00d2ff; font-size:15px;">1. Fête de vacances à Frototou</h4>
+                            <p style="color:#a0aec0; font-size:13px;">Organisation des festivités estivales et activités culturelles.</p>
                         </div>
-                        <div style="background:#0b0f19; padding:10px; border-radius:8px; border-left:4px solid #00d2ff;">
-                            <h4 style="color:#00d2ff; font-size:14px;">2. Connivence des jeunes de Dossola</h4>
-                            <p style="color:#a0aec0; font-size:12px;">Programme de fraternisation et d'entraide.</p>
+                        <div style="background:#0b0f19; padding:12px; border-radius:8px; border-left:4px solid #00d2ff;">
+                            <h4 style="color:#00d2ff; font-size:15px;">2. Connivence des jeunes de Dossola</h4>
+                            <p style="color:#a0aec0; font-size:13px;">Programme de fraternisation et d'entraide entre les jeunes.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- BLOG -->
                 <div id="blogTab" class="dash-section">
-                    <h3>Membres & Suivi</h3>
+                    <h3>Membres & Suivi des Paiements</h3>
                     <div class="participants-grid" id="participantsGrid"></div>
                 </div>
 
                 <!-- PROFIL -->
                 <div id="profileTab" class="dash-section">
                     <h3>Profil du Cadre</h3>
-                    <p style="margin-bottom: 8px; font-size:13px;"><strong>Nom :</strong> <span id="dashName" style="color:#00d2ff;">---</span></p>
-                    <p style="margin-bottom: 8px; font-size:13px;"><strong>Téléphone :</strong> <span id="dashPhone" style="color:#00d2ff;">---</span></p>
-                    <p style="font-size:13px;"><strong>Email :</strong> <span id="dashEmail">---</span></p>
+                    <p style="margin-bottom: 8px;"><strong>Nom & Prénom :</strong> <span id="dashName" style="color:#00d2ff;">---</span></p>
+                    <p style="margin-bottom: 8px;"><strong>Téléphone Wave :</strong> <span id="dashPhone" style="color:#00d2ff;">---</span></p>
+                    <p><strong>Email :</strong> <span id="dashEmail">---</span></p>
                 </div>
 
-                <!-- PANNEAU ADMINISTRATEUR -->
+                <!-- 👑 NOUVEAU : PANNEAU ADMINISTRATEUR -->
                 <div id="adminTab" class="dash-section">
-                    <h3 style="color:#f1c40f;">👑 Dashboard Admin</h3>
-                    <p style="color:#a0aec0; font-size:12px; margin-bottom:15px;">Gestion globale et historique des transactions.</p>
+                    <h3 style="color:#f1c40f;">👑 Dashboard Administration Général</h3>
+                    <p style="color:#a0aec0; font-size:13px; margin-bottom:20px;">Accès restreint. Liste de tous les utilisateurs enregistrés et historique global des transactions.</p>
                     
-                    <h4 style="color:#00d2ff; margin-bottom:8px; font-size:14px;">1. Utilisateurs Inscrits</h4>
-                    <div class="table-responsive" style="margin-bottom:20px;">
-                        <table class="history-table">
-                            <thead>
-                                <tr>
-                                    <th>Nom</th>
-                                    <th>Email</th>
-                                    <th>Téléphone</th>
-                                    <th>Total</th>
-                                    <th>Statut</th>
-                                </tr>
-                            </thead>
-                            <tbody id="adminUsersBody">
-                                <tr><td colspan="5" style="color:#a0aec0;">Chargement...</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <h4 style="color:#00d2ff; margin-bottom:10px; font-size:15px;">1. Utilisateurs Inscrits & Statut global</h4>
+                    <table class="history-table" style="margin-bottom:30px;">
+                        <thead>
+                            <tr>
+                                <th>Nom & Prénom</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Total Cotisé</th>
+                                <th>Statut du Mois</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminUsersBody">
+                            <tr><td colspan="5" style="color:#a0aec0;">Chargement des membres...</td></tr>
+                        </tbody>
+                    </table>
 
-                    <h4 style="color:#27ae60; margin-bottom:8px; font-size:14px;">2. Tous les Paiements</h4>
-                    <div class="table-responsive">
-                        <table class="history-table">
-                            <thead>
-                                <tr>
-                                    <th>Membre</th>
-                                    <th>Reçu</th>
-                                    <th>Réf Wave</th>
-                                    <th>Montant</th>
-                                    <th>Date</th>
-                                </tr>
-                            </thead>
-                            <tbody id="adminPaymentsBody">
-                                <tr><td colspan="5" style="color:#a0aec0;">Aucune transaction.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <h4 style="color:#27ae60; margin-bottom:10px; font-size:15px;">2. Historique Tous Paiements Confondus</h4>
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Membre</th>
+                                <th>N° Reçu</th>
+                                <th>Réf Wave</th>
+                                <th>Montant</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminPaymentsBody">
+                            <tr><td colspan="5" style="color:#a0aec0;">Aucune transaction générale enregistrée.</td></tr>
+                        </tbody>
+                    </table>
                 </div>
+
             </main>
         </div>
     </div>
 
-    <!-- MODEL DE REÇU CERTIFIÉ -->
+    <!-- MODEL DE REÇU CERTIFIÉ (AVEC STAMP BRILLANT + QR CODE) -->
     <div id="pdfReceiptTemplate">
         <div class="receipt-header">
             <div>
                 <div class="receipt-title">Cadres pour le Développement de Frototou</div>
-                <div class="receipt-subtitle">Attestation Officielle de Paiement Wave</div>
+                <div class="receipt-subtitle">Attestation Officielle de Paiement & Versement Wave</div>
             </div>
             <div style="text-align:right;">
-                <span style="font-size:11px; font-weight:bold; color:#0072ff;" id="recNo">REC-000000</span><br>
-                <span style="font-size:9px; color:#718096;" id="recDate">00/00/0000</span>
+                <span style="font-size:12px; font-weight:bold; color:#0072ff;" id="recNo">REC-000000</span><br>
+                <span style="font-size:10px; color:#718096;" id="recDate">00/00/0000</span>
             </div>
         </div>
 
         <div class="receipt-grid">
             <div class="receipt-box-info">
                 <h5>Informations du Membre</h5>
-                <p><strong>Nom :</strong> <span id="recName">---</span></p>
+                <p><strong>Nom & Prénom :</strong> <span id="recName">---</span></p>
                 <p><strong>Téléphone :</strong> <span id="recPhone">---</span></p>
                 <p><strong>Email :</strong> <span id="recEmail">---</span></p>
             </div>
             <div class="receipt-box-info">
                 <h5>Détails de Transaction</h5>
-                <p><strong>Mode :</strong> Wave Mobile Money</p>
-                <p><strong>Réf. :</strong> <span id="recWaveRef" style="color:#0072ff; font-weight:bold;">---</span></p>
-                <p><strong>Statut :</strong> <span style="color:#27ae60; font-weight:bold;">VÉRIFIÉ ✔</span></p>
+                <p><strong>Mode de paiement :</strong> Wave Mobile Money</p>
+                <p><strong>Réf. Transaction :</strong> <span id="recWaveRef" style="color:#0072ff; font-weight:bold;">---</span></p>
+                <p><strong>Statut :</strong> <span style="color:#27ae60; font-weight:bold;">VÉRIFIÉ & VALIDE ✔</span></p>
             </div>
         </div>
 
@@ -457,29 +506,34 @@
                 <tr>
                     <th>Description</th>
                     <th>Période</th>
-                    <th>Montant</th>
+                    <th>Montant Versé</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Cotisation Frototou</td>
+                    <td>Cotisation Cadre pour le Développement de Frototou</td>
                     <td>Mois en cours</td>
                     <td id="recAmount" style="font-weight:bold; color:#27ae60;">0 FCFA</td>
                 </tr>
             </tbody>
         </table>
 
-        <p style="font-size:11px; margin-bottom:12px;"><strong>Cumul Mensuel :</strong> <span id="recTotal" style="color:#0072ff; font-weight:bold;">0 FCFA / 1000 FCFA</span></p>
+        <p style="font-size:12px; margin-bottom:15px;"><strong>Cumul Mensuel du Membre :</strong> <span id="recTotal" style="color:#0072ff; font-weight:bold;">0 FCFA / 1000 FCFA</span></p>
 
         <div class="receipt-footer-section">
-            <div class="shiny-seal">
-                <div style="font-size: 13px;">★ CERTIFIÉ ★</div>
-                <span>DOCUMENT<br>OFFICIEL</span>
-                <div style="font-size: 7px;">FROTOTOU</div>
+            <div>
+                <!-- BADGE DE CERTIFICATION BRILLANT -->
+                <div class="shiny-seal">
+                    <div style="font-size: 16px;">★ CERTIFIÉ ★</div>
+                    <span>DOCUMENT<br>OFFICIEL</span>
+                    <div style="font-size: 8px;">FROTOTOU</div>
+                </div>
             </div>
+
+            <!-- CODE QR -->
             <div style="text-align:center;">
                 <div id="qrcodeCanvas"></div>
-                <span style="font-size:8px; color:#718096; display:block; margin-top:3px;">Scan de vérification</span>
+                <span style="font-size:9px; color:#718096; display:block; margin-top:4px;">Scan pour vérifier</span>
             </div>
         </div>
     </div>
@@ -489,6 +543,7 @@
         const TEMPLATE_ID = "template_g5oku3r"; 
         const PUBLIC_KEY = "WQu-Q9_O-V5EunOau"; 
 
+        // 🔑 COMPTE ADMINISTRATEUR PRÉDÉFINI
         const ADMIN_CREDENTIALS = {
             email: "admin@frototou.ci",
             pass: "admin1234",
@@ -505,7 +560,444 @@
 
         const authContainer = document.getElementById('authContainer');
         const dashboardLayout = document.getElementById('dashboardLayout');
-        // (Le reste de votre logique JavaScript demeure inchangé)
+        const loginBox = document.getElementById('loginBox');
+        const registerBox = document.getElementById('registerBox');
+        const otpBox = document.getElementById('otpBox');
+        const forgotBox = document.getElementById('forgotBox');
+
+        function notify(msg, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.className = type;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 2500);
+        }
+
+        function hideAllAuthBoxes() {
+            loginBox.classList.remove('active');
+            registerBox.classList.remove('active');
+            otpBox.classList.remove('active');
+            forgotBox.classList.remove('active');
+        }
+
+        function triggerActionWithLoading(messageText, callbackAction) {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const loadingText = document.getElementById('loadingText');
+            loadingText.innerText = messageText;
+            loadingOverlay.style.display = 'flex';
+
+            setTimeout(() => {
+                loadingOverlay.style.display = 'none';
+                callbackAction();
+            }, 800);
+        }
+
+        document.querySelectorAll('.switch-to-login').forEach(el => el.addEventListener('click', () => {
+            hideAllAuthBoxes(); loginBox.classList.add('active');
+        }));
+        document.querySelectorAll('.switch-to-register').forEach(el => el.addEventListener('click', () => {
+            hideAllAuthBoxes(); registerBox.classList.add('active');
+        }));
+        document.querySelectorAll('.switch-to-forgot').forEach(el => el.addEventListener('click', () => {
+            hideAllAuthBoxes(); forgotBox.classList.add('active');
+        }));
+
+        function switchDashTab(tabId, btn) {
+            document.querySelectorAll('.dash-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+
+            if (tabId === 'adminTab') {
+                renderAdminDashboardData();
+            }
+        }
+
+        // INSCRIPTION MEMBRE
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            pendingUser = {
+                name: document.getElementById('regName').value,
+                phone: document.getElementById('regPhone').value,
+                email: document.getElementById('regEmail').value,
+                pass: document.getElementById('regPass').value,
+                verified: false,
+                cotisations: []
+            };
+            generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+
+            triggerActionWithLoading("Envoi du code OTP...", () => {
+                emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+                    to_email: pendingUser.email,
+                    email: pendingUser.email,
+                    reply_to: pendingUser.email,
+                    passcode: generatedOTP,
+                    otp_code: generatedOTP
+                }).then(() => {
+                    notify("OTP envoyé à " + pendingUser.email);
+                    hideAllAuthBoxes();
+                    otpBox.classList.add('active');
+                }, () => notify("Erreur d'envoi OTP", "error"));
+            });
+        });
+
+        document.getElementById('otpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (document.getElementById('otpCode').value === generatedOTP) {
+                pendingUser.verified = true;
+                let allUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
+                allUsers.push(pendingUser);
+                localStorage.setItem('allUsers', JSON.stringify(allUsers));
+
+                triggerActionWithLoading("Validation...", () => {
+                    notify("Compte créé avec succès !");
+                    hideAllAuthBoxes();
+                    loginBox.classList.add('active');
+                    document.getElementById('loginUser').value = pendingUser.email;
+                });
+            } else { notify("Code OTP incorrect", "error"); }
+        });
+
+        // CONNEXION (AVEC VÉRIFICATION DU COMPTE ADMIN PRÉDÉFINI)
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputEmail = document.getElementById('loginUser').value.trim();
+            const inputPass = document.getElementById('loginPass').value.trim();
+
+            // Verification compte admin prédéfini
+            if (inputEmail === ADMIN_CREDENTIALS.email && inputPass === ADMIN_CREDENTIALS.pass) {
+                triggerActionWithLoading("Connexion Administrateur...", () => {
+                    localStorage.setItem('activeSession', JSON.stringify(ADMIN_CREDENTIALS));
+                    showDashboard(ADMIN_CREDENTIALS);
+                });
+                return;
+            }
+
+            // Vérification compte utilisateur régulier
+            const allUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
+            const userFound = allUsers.find(u => u.email === inputEmail && u.pass === inputPass);
+
+            if (userFound) {
+                triggerActionWithLoading("Connexion...", () => {
+                    localStorage.setItem('activeSession', JSON.stringify(userFound));
+                    showDashboard(userFound);
+                });
+            } else { notify("Identifiants incorrects", "error"); }
+        });
+
+        // ENREGISTREMENT ET VÉRIFICATION DE PAIEMENT WAVE
+        function verifyAndRegisterWavePayment() {
+            const amountInput = document.getElementById('waveAmountInput');
+            const refInput = document.getElementById('waveRefInput');
+            const val = parseInt(amountInput.value);
+            const waveRef = refInput.value.trim();
+
+            if (!val || val < 100) {
+                notify("Saisissez un montant valide (min 100 FCFA)", "error");
+                return;
+            }
+            if (!waveRef || waveRef.length < 5) {
+                notify("Saisissez une référence de transaction Wave valide", "error");
+                return;
+            }
+
+            const activeUser = JSON.parse(localStorage.getItem('activeSession'));
+            if (!activeUser.cotisations) activeUser.cotisations = [];
+
+            const isDuplicate = activeUser.cotisations.some(c => c.waveRef === waveRef);
+            if (isDuplicate) {
+                notify("Cette référence Wave a déjà été validée.", "error");
+                return;
+            }
+
+            const newPayment = {
+                id: 'REC-' + Math.floor(100000 + Math.random() * 900000),
+                waveRef: waveRef,
+                amount: val,
+                date: new Date().toLocaleDateString('fr-FR') + ' ' + new Date().toLocaleTimeString('fr-FR')
+            };
+
+            triggerActionWithLoading("Vérification auprès de Wave...", () => {
+                activeUser.cotisations.push(newPayment);
+                localStorage.setItem('activeSession', JSON.stringify(activeUser));
+                
+                let allUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
+                const idx = allUsers.findIndex(u => u.email === activeUser.email);
+                if (idx !== -1) {
+                    allUsers[idx] = activeUser;
+                    localStorage.setItem('allUsers', JSON.stringify(allUsers));
+                }
+                
+                amountInput.value = '';
+                refInput.value = '';
+                notify("Paiement Wave certifié et enregistré !");
+                updateCotisationUI(activeUser);
+                updateParticipantsBlog();
+            });
+        }
+
+        function updateCotisationUI(user) {
+            const list = user.cotisations || [];
+            const total = list.reduce((sum, item) => sum + item.amount, 0);
+            const reste = Math.max(0, MONTHLY_TARGET - total);
+            const percent = Math.min(100, Math.round((total / MONTHLY_TARGET) * 100));
+
+            document.getElementById('kpiCotisation').innerText = `${total} / 1 000 FCFA`;
+            document.getElementById('kpiReste').innerText = `${reste} FCFA`;
+            document.getElementById('progressBar').style.width = `${percent}%`;
+            document.getElementById('percentText').innerText = `${percent}% (${total} FCFA versés)`;
+
+            const historyBody = document.getElementById('historyBody');
+            if (list.length === 0) {
+                historyBody.innerHTML = `<tr><td colspan="4" style="color:#a0aec0;">Aucun versement vérifié pour le moment.</td></tr>`;
+            } else {
+                historyBody.innerHTML = list.map(item => `
+                    <tr>
+                        <td>${item.date}</td>
+                        <td style="color:#1dc4ec; font-family:monospace;">${item.waveRef}</td>
+                        <td style="color:#27ae60; font-weight:bold;">+${item.amount} FCFA</td>
+                        <td><button onclick="downloadPDF('${item.id}', '${item.waveRef}', '${item.date}', ${item.amount}, ${total})" style="background:#0072ff; color:#fff; border:none; padding:5px 10px; border-radius:4px; font-size:12px; font-weight:bold; cursor:pointer;">Télécharger Reçu PDF</button></td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        // VÉRIFICATION D'UN REÇU DANS LE SYSTÈME
+        function checkReceiptAuthenticity() {
+            const searchVal = document.getElementById('searchReceiptInput').value.trim();
+            const display = document.getElementById('verifyResultDisplay');
+
+            if (!searchVal) {
+                notify("Veuillez saisir un N° de reçu ou une référence Wave", "error");
+                return;
+            }
+
+            const allUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
+            let foundMatch = null;
+            let foundUser = null;
+
+            for (let user of allUsers) {
+                if (user.cotisations) {
+                    let match = user.cotisations.find(c => c.id === searchVal || c.waveRef === searchVal);
+                    if (match) {
+                        foundMatch = match;
+                        foundUser = user;
+                        break;
+                    }
+                }
+            }
+
+            display.style.display = 'block';
+            if (foundMatch && foundUser) {
+                display.style.borderColor = "#27ae60";
+                display.innerHTML = `
+                    <div style="color:#27ae60; font-weight:bold; font-size:16px; margin-bottom:8px;">✔ REÇU CERTIFIÉ ET AUTHENTIQUE</div>
+                    <p style="font-size:13px; color:#fff;"><strong>N° Reçu :</strong> ${foundMatch.id}</p>
+                    <p style="font-size:13px; color:#fff;"><strong>Nom & Prénom du Membre :</strong> ${foundUser.name}</p>
+                    <p style="font-size:13px; color:#fff;"><strong>Téléphone :</strong> ${foundUser.phone || 'Non renseigné'}</p>
+                    <p style="font-size:13px; color:#fff;"><strong>Réf. Wave :</strong> ${foundMatch.waveRef}</p>
+                    <p style="font-size:13px; color:#fff;"><strong>Montant :</strong> ${foundMatch.amount} FCFA</p>
+                    <p style="font-size:13px; color:#fff;"><strong>Date :</strong> ${foundMatch.date}</p>
+                `;
+            } else {
+                display.style.borderColor = "#e74c3c";
+                display.innerHTML = `
+                    <div style="color:#e74c3c; font-weight:bold; font-size:16px;">❌ REÇU INVALIDE OU NON TROUVÉ</div>
+                    <p style="font-size:13px; color:#a0aec0; margin-top:5px;">Ce numéro de reçu ou cette référence ne correspond à aucun paiement enregistré dans nos registres officiels.</p>
+                `;
+            }
+        }
+
+        // REMPLISSAGE DU PANNEAU ADMINISTRATEUR
+        function renderAdminDashboardData() {
+            const allUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
+            const adminUsersBody = document.getElementById('adminUsersBody');
+            const adminPaymentsBody = document.getElementById('adminPaymentsBody');
+
+            if (allUsers.length === 0) {
+                adminUsersBody.innerHTML = `<tr><td colspan="5" style="color:#a0aec0;">Aucun membre actuellement dans le système.</td></tr>`;
+                adminPaymentsBody.innerHTML = `<tr><td colspan="5" style="color:#a0aec0;">Aucune transaction enregistrée.</td></tr>`;
+                return;
+            }
+
+            // 1. Charger tous les Utilisateurs
+            adminUsersBody.innerHTML = allUsers.map(u => {
+                const cots = u.cotisations || [];
+                const totalVersed = cots.reduce((s, c) => s + c.amount, 0);
+                const statusInfo = checkPaymentPeriodStatus(totalVersed);
+
+                return `
+                    <tr>
+                        <td><strong>${u.name}</strong></td>
+                        <td>${u.email}</td>
+                        <td>${u.phone || 'N/A'}</td>
+                        <td style="color:#00d2ff; font-weight:bold;">${totalVersed} FCFA</td>
+                        <td><span class="status-badge ${statusInfo.class}">${statusInfo.text}</span></td>
+                    </tr>
+                `;
+            }).join('');
+
+            // 2. Charger Toutes les Transactions Globales
+            let allPayments = [];
+            allUsers.forEach(u => {
+                if (u.cotisations && u.cotisations.length > 0) {
+                    u.cotisations.forEach(c => {
+                        allPayments.push({
+                            userName: u.name,
+                            recId: c.id,
+                            waveRef: c.waveRef,
+                            amount: c.amount,
+                            date: c.date
+                        });
+                    });
+                }
+            });
+
+            if (allPayments.length === 0) {
+                adminPaymentsBody.innerHTML = `<tr><td colspan="5" style="color:#a0aec0;">Aucun paiement enregistré pour l'instant.</td></tr>`;
+            } else {
+                adminPaymentsBody.innerHTML = allPayments.map(p => `
+                    <tr>
+                        <td><strong>${p.userName}</strong></td>
+                        <td style="color:#00d2ff;">${p.recId}</td>
+                        <td style="color:#1dc4ec; font-family:monospace;">${p.waveRef}</td>
+                        <td style="color:#27ae60; font-weight:bold;">+${p.amount} FCFA</td>
+                        <td>${p.date}</td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function checkPaymentPeriodStatus(userTotal) {
+            const today = new Date();
+            const day = today.getDate();
+
+            if (userTotal >= MONTHLY_TARGET) {
+                return { text: "À jour (Payé ✔)", class: "status-paid" };
+            }
+
+            const isOfficialPeriod = (day >= 31 || day <= 5);
+            if (isOfficialPeriod) {
+                return { text: "En cours de paiement", class: "status-pending" };
+            } else {
+                return { text: "En retard de paiement ⚠️", class: "status-late" };
+            }
+        }
+
+        function updateParticipantsBlog() {
+            const allUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
+            document.getElementById('kpiParticipants').innerText = `${allUsers.length} Membre(s)`;
+
+            const grid = document.getElementById('participantsGrid');
+            if (allUsers.length === 0) {
+                grid.innerHTML = `<p style="color:#a0aec0;">Aucun membre inscrit pour le moment.</p>`;
+            } else {
+                grid.innerHTML = allUsers.map(u => {
+                    const cots = u.cotisations || [];
+                    const totalVersed = cots.reduce((sum, c) => sum + c.amount, 0);
+                    const statusInfo = checkPaymentPeriodStatus(totalVersed);
+
+                    return `
+                        <div class="participant-card">
+                            <div class="participant-header">
+                                <div class="participant-avatar">${u.name.charAt(0).toUpperCase()}</div>
+                                <div>
+                                    <h4 style="color:#fff; font-size:14px;">${u.name}</h4>
+                                    <p style="color:#a0aec0; font-size:11px;">📞 ${u.phone || 'N/A'}</p>
+                                </div>
+                            </div>
+                            <div style="font-size: 12px; color: #a0aec0;">
+                                Versé : <strong style="color: #fff;">${totalVersed} / 1 000 FCFA</strong>
+                            </div>
+                            <span class="status-badge ${statusInfo.class}">${statusInfo.text}</span>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        // GÉNÉRATION PDF + IMPRESSION DU BADGE BRILLANT & CODE QR
+        function downloadPDF(recId, waveRef, date, amount, totalCumule) {
+            const user = JSON.parse(localStorage.getItem('activeSession'));
+            
+            document.getElementById('recNo').innerText = recId;
+            document.getElementById('recWaveRef').innerText = waveRef;
+            document.getElementById('recName').innerText = user.name;
+            document.getElementById('recPhone').innerText = user.phone || 'Non renseigné';
+            document.getElementById('recEmail').innerText = user.email;
+            document.getElementById('recDate').innerText = date;
+            document.getElementById('recAmount').innerText = `${amount} FCFA`;
+            document.getElementById('recTotal').innerText = `${totalCumule} FCFA / 1 000 FCFA`;
+
+            // Nettoyage et création du Code QR
+            const qrContainer = document.getElementById("qrcodeCanvas");
+            qrContainer.innerHTML = "";
+            const qrData = `CERTIFICATION OFFICIAL FROTOTOU\nReçu: ${recId}\nWaveRef: ${waveRef}\nMembre: ${user.name}\nTel: ${user.phone}\nMontant: ${amount}FCFA`;
+
+            new QRCode(qrContainer, {
+                text: qrData,
+                width: 90,
+                height: 90,
+                colorDark : "#0072ff",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+
+            const element = document.getElementById('pdfReceiptTemplate');
+            element.style.display = 'block';
+
+            const opt = {
+                margin: 0.3,
+                filename: `Facture_Certifiee_${recId}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            setTimeout(() => {
+                html2pdf().set(opt).from(element).save().then(() => {
+                    element.style.display = 'none';
+                });
+            }, 300);
+        }
+
+        function showDashboard(user) {
+            authContainer.style.display = 'none';
+            dashboardLayout.style.display = 'flex';
+            document.getElementById('dashName').innerText = user.name;
+            document.getElementById('dashPhone').innerText = user.phone || 'Non renseigné';
+            document.getElementById('dashEmail').innerText = user.email;
+            document.getElementById('navUserName').innerText = user.name;
+            document.getElementById('navAvatar').innerText = user.name.charAt(0).toUpperCase();
+
+            // Gestion de l'affichage du bouton Administrateur
+            const adminBtn = document.getElementById('adminSidebarBtn');
+            if (user.isAdmin) {
+                adminBtn.style.display = 'block';
+                document.getElementById('neonWelcomeTitle').innerHTML = `PANNEAU <span style="color:#f1c40f;">ADMINISTRATEUR GENERAL</span> (FROTOTOU)`;
+            } else {
+                adminBtn.style.display = 'none';
+                document.getElementById('neonWelcomeTitle').innerHTML = `BIENVENUE <span style="color:#00d2ff;">${user.name}</span> SUR LA PAGE OFFICIELLE DES CADRES DE (FROTOTOU)`;
+            }
+            
+            updateCotisationUI(user);
+            updateParticipantsBlog();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const activeSession = localStorage.getItem('activeSession');
+            if (activeSession) showDashboard(JSON.parse(activeSession));
+        });
+
+        document.getElementById('btnLogout').addEventListener('click', () => {
+            triggerActionWithLoading("Déconnexion...", () => {
+                localStorage.removeItem('activeSession');
+                dashboardLayout.style.display = 'none';
+                authContainer.style.display = 'flex';
+                hideAllAuthBoxes();
+                loginBox.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
